@@ -1,0 +1,9 @@
+
+Congratulations!
+- Create a calculator that is initialized with a string expression         00:24:52
+- Create an add method that sums the string expression                     00:12:49
+- Allow the expression to contain an unknown amount of numbers             00:11:42
+- Create a diff method that computes the consecutive differences           00:20:57
+- The diff methods should raise the same exceptions as the add method      00:00:18
+----------------------------------------------------------------------     --------
+Total Time taking Calculator kata:                                         01:00:18
