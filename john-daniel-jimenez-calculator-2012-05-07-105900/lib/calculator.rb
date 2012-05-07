@@ -12,14 +12,6 @@ class Calculator
   end
 
   def add 
-    if @expression == ''
-      return 0
-    elsif @expression.match /^\s*(\d+)\s*$/
-      return $1.to_i
-    elsif @expression.match /\d+,\d+/
-      sum = 0
-      @expression.split(',').each {|diget| sum += diget.to_i }
-      return sum
-    end
+    @expression.split(',').inject(0) {|s,v| s += v.to_i}
   end
 end
