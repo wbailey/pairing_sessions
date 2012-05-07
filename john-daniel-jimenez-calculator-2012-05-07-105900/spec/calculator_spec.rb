@@ -86,4 +86,27 @@ describe Calculator do
       c.diff.should == -5
     end
   end
+
+  describe '#prod' do
+    it 'multiplies single character expressions' do
+      c = Calculator.new '1'
+      c.prod.should == 1
+      c.expr = '0'
+      c.prod.should == 0
+    end
+
+    it 'multiplies two character expressions' do
+      c = Calculator.new '1'
+      c.expr = '3,2'
+      c.prod.should == 6
+    end
+
+
+    it 'multiplies multi ( more than two ) character expressions' do
+      c = Calculator.new '1'
+      c.expr = '3,2,3'
+      c.prod.should == 18
+    end
+
+  end
 end
