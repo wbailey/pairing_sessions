@@ -55,4 +55,35 @@ describe Calculator do
     end
   end
 
+  describe '#diff' do
+    it 'requires at least a 2 digits expression' do
+      c = Calculator.new
+
+      expect {
+        c.diff
+      }.should raise_exception
+
+      c = Calculator.new '5'
+
+      expect {
+        c.diff
+      }.should raise_exception
+
+      c = Calculator.new '2,1'
+
+      expect {
+        c.expr = '4'
+        c.diff
+      }.should raise_exception
+    end
+
+    it 'computes consecutive differences' do
+      c = Calculator.new '1,0'
+      c.diff.should == 1
+      c.expr = '3,2,1'
+      c.diff.should == 0
+      c.expr = '5,4,3,2,1'
+      c.diff.should == -5
+    end
+  end
 end
