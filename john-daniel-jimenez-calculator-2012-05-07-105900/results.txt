@@ -1,0 +1,11 @@
+
+
+Congratulations!
+- Create a calculator that is initialized with a string expression         00:13:06
+- Create an add method that sums the string expression                     00:16:31
+- Allow the expression to contain an unknown amount of numbers             00:12:39
+- Create a diff method that computes the consecutive differences           00:23:26
+- Create a prod method that computes the multiples in the expression       00:06:59
+- Create a div method that computes the consecutive divisions in the exp   00:08:28
+----------------------------------------------------------------------     --------
+Total Time taking Calculator kata:                                         01:21:08
