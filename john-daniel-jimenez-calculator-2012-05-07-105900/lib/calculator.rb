@@ -1,5 +1,5 @@
 class Calculator
-  def initialize expression
+  def initialize expression=''
     @expression = expression
   end
 

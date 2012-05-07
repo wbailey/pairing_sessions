@@ -4,10 +4,10 @@ require 'calculator'
 describe Calculator do
   describe "#new" do
 
-    it "require expression" do
+    it "does require expression" do
       expect {
         Calculator.new
-      }.should raise_exception
+      }.should_not raise_exception
     end
 
     it 'accepts expression' do
@@ -31,7 +31,7 @@ describe Calculator do
 
   describe '#add' do
     it 'evaluates empty expression' do
-      c = Calculator.new ''
+      c = Calculator.new
       c.add.should == 0
     end
 
@@ -41,9 +41,10 @@ describe Calculator do
     end
 
     it 'evaluates two character expression' do
-      c = Calculator.new ''
-      c.expr = '1,2'
+      c = Calculator.new '1,2'
       c.add.should == 3
+      c.expr = '3,4'
+      c.add.should == 7
     end
   end
 
