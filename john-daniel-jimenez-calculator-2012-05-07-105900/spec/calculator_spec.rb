@@ -107,6 +107,20 @@ describe Calculator do
       c.expr = '3,2,3'
       c.prod.should == 18
     end
-
   end
+  describe '#div'do
+    it 'returns quotient of two character expressions' do
+      c = Calculator.new '1'
+      c.expr = '2,1'
+      c.div.should == 2
+    end
+    it 'returns quotient of multi ( more than two ) character expressions' do
+      c = Calculator.new '1'
+      c.expr = '3,2,1'
+      c.div.should == 1
+      c.expr = '1,2,3'
+      c.div.should == 0
+    end
+  end
+
 end

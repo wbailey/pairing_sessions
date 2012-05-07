@@ -26,4 +26,10 @@ class Calculator
     @expression.split(',').inject(1) {|s,v| s *= v.to_i}
   end
 
+  def div
+    digits = @expression.split(',')
+    raise ArgumentError if ( digits.select {|n| n == 0} ).length != 0
+    first = digits.shift.to_i
+    digits.inject(first) {|s,v| s /= v.to_i}
+  end
 end
