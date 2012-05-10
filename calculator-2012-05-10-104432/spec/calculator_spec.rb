@@ -72,4 +72,32 @@ describe Calculator do
       c.add.should == 16
     end
   end
+
+  describe '#diff' do
+    it 'rejects invalid expressions' do
+      c = Calculator.new
+
+      expect {
+        c.diff
+      }.should raise_exception
+
+      d = Calculator.new '5'
+
+      expect {
+        d.diff
+      }.should raise_exception
+    end
+
+    it 'computes expression' do
+      c = Calculator.new
+      c.expr = '1,0'
+      c.diff.should == 1
+
+      c.expr = '3,2,1'
+      c.diff.should == 0
+
+      c.expr = '5,4,3,2,1'
+      c.diff.should == -5
+    end
+  end
 end

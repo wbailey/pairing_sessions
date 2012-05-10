@@ -9,6 +9,12 @@ class Calculator
     numbers.inject(0){|acc,number| acc += number.to_i }
   end
 
+  def diff
+    numbers = expr.split(/,/)
+    raise 'Cannot take the diff on fewer than 2 arguments' if numbers.length < 2
+    numbers[1..-1].inject(numbers[0].to_i){|acc,number| acc -= number.to_i }
+  end
+
   def expr
     @expr
   end
