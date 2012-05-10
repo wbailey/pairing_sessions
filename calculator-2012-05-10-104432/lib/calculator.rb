@@ -1,12 +1,7 @@
 class Calculator
 
   def initialize(expressn="")
-    args = expressn.split(/,/)
-    @expr = expressn
-    args.each do |arg|
-      raise 'Invalid expression' unless arg =~ /^\d$/
-    end
-
+    self.expr = expressn
   end
 
   def add
@@ -19,6 +14,12 @@ class Calculator
   end
 
   def expr= (expressn)
+    args = expressn.split(/,/)
+
+    args.each do |arg|
+      raise 'Invalid expression' unless arg =~ /^\d$/
+    end
+
     @expr = expressn
   end
 end
