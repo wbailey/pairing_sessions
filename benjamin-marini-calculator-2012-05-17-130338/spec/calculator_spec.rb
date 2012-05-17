@@ -54,5 +54,13 @@ describe Calculator do
         c.add
       }.should raise_exception
     end
+
+    it 'computes a mult-digit expression' do
+      c = Calculator.new '1,2,3'
+      c.add.should == 6
+
+      c.expr = '1,2,5,8'
+      c.add.should == 16
+    end
   end
 end
