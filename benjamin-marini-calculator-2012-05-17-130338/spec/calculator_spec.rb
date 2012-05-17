@@ -116,4 +116,34 @@ describe Calculator do
       c.prod.should == 0
     end
   end
+
+  describe '#div' do
+    it 'computes two digit expresssions' do
+      c = Calculator.new
+
+      c.expr = '2,1'
+      c.div.should == 2
+    end
+
+    it 'rejects expressions containing 0' do
+      c = Calculator.new '0,1,2'
+
+      expect {
+        c.div
+      }.should raise_exception
+    end
+
+    it 'computes single digit expressions' do
+      c = Calculator.new '1'
+      c.div.should == 1
+    end
+
+    it 'computes multi-digit expressions' do
+      c = Calculator.new '3,2,1'
+      c.div.should == 1
+
+      c.expr = '1,2,3'
+      c.div.should == 0
+    end
+  end
 end

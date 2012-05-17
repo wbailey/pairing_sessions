@@ -18,7 +18,12 @@ class Calculator
   end
 
   def prod
-    numbers.inject { |quot, num| quot * num }
+    numbers.inject { |prod, num| prod * num }
+  end
+
+  def div
+    raise InvalidExpressionError if numbers.include?(0)
+    numbers.inject { |quot, num| quot / num }
   end
 
   private
