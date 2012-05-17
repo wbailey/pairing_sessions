@@ -4,17 +4,21 @@ class Calculator
 
   attr_accessor :expr
 
-  def initialize(expr='')
+  def initialize(expr='0')
     @expr = expr
   end
 
   def add
-    numbers.inject(0) { |sum, num| sum + num }
+    numbers.inject { |sum, num| sum + num }
   end
 
   def diff
     raise InvalidExpressionError if numbers.size < 2
     numbers.inject { |diff, num| diff - num }
+  end
+
+  def prod
+    numbers.inject { |quot, num| quot * num }
   end
 
   private
@@ -24,6 +28,6 @@ class Calculator
   end
 
   def valid_expr?
-    @expr == '' || @expr =~ /(\d+,?)+/
+    @expr =~ /(\d+,?)+/
   end
 end

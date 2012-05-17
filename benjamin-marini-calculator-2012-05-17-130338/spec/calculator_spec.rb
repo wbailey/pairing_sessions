@@ -83,4 +83,37 @@ describe Calculator do
       }.should raise_exception
     end
   end
+
+  describe '#prod' do
+    it 'computes a single digit expression' do
+      c = Calculator.new '0'
+      c.prod.should == 0
+
+      c.expr = '1'
+      c.prod.should == 1
+
+      c.expr = '5'
+      c.prod.should == 5
+    end
+
+    it 'computes two digit expressions' do
+      c = Calculator.new
+
+      c.expr = '1,2'
+      c.prod.should == 2
+
+      c.expr = '3,2'
+      c.prod.should == 6
+    end
+
+    it 'computes multi-digit expressions' do
+      c = Calculator.new
+
+      c.expr = '1,2,3'
+      c.prod.should == 6
+
+      c.expr = '5,4,3,2,1,0'
+      c.prod.should == 0
+    end
+  end
 end
