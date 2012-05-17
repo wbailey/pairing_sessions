@@ -57,11 +57,19 @@ describe Calculator do
       c.add.should == 1
     end
 
-    it 'computes multi-digit expression' do
+    it 'computes two digit expression' do
       c = Calculator.new '1,2'
       c.add.should == 3
       c.expr = '7,8'
       c.add.should == 15
+    end
+
+    it 'computes multi-digit expressions' do
+      c = Calculator.new '1,2,3'
+      c.add.should == 6
+
+      c.expr = '1,2,5,8'
+      c.add.should == 16
     end
   end
 end
