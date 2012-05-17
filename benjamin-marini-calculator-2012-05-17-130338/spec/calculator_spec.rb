@@ -30,4 +30,29 @@ describe Calculator do
       c.expr.should == '3,4'
     end
   end
+
+  describe '#add' do
+    it 'computes the empty expression' do
+      c = Calculator.new
+      c.add.should == 0
+    end
+
+    it 'computes a single digit expression' do
+      c = Calculator.new '1'
+      c.add.should == 1
+    end
+
+    it 'computes a two digit expression' do
+      c = Calculator.new '1,2'
+      c.add.should == 3
+    end
+
+    it 'rejects invalid expressions' do
+      c = Calculator.new 'a,b'
+
+      expect {
+        c.add
+      }.should raise_exception
+    end
+  end
 end
