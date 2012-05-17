@@ -63,4 +63,24 @@ describe Calculator do
       c.add.should == 16
     end
   end
+
+  describe '#diff' do
+    it 'computes differences for two digit expressions' do
+      c = Calculator.new '1,0'
+      c.diff.should == 1
+    end
+
+    it 'computes differences for multi-digit expressions' do
+      c = Calculator.new '5,4,3,2,1'
+      c.diff.should == -5
+    end
+
+    it 'rejects invalid expressions' do
+      c = Calculator.new '5'
+
+      expect {
+        c.diff
+      }.should raise_exception
+    end
+  end
 end

@@ -12,6 +12,11 @@ class Calculator
     numbers.inject(0) { |sum, num| sum + num }
   end
 
+  def diff
+    raise InvalidExpressionError if numbers.size < 2
+    numbers.inject { |diff, num| diff - num }
+  end
+
   private
   def numbers
     raise InvalidExpressionError unless valid_expr?
