@@ -1,7 +1,7 @@
 class Calculator
 
   def initialize(exp='')
-    @expr = exp if self.valid?(exp)
+    self.expr = exp
   end
 
   def expr
@@ -9,7 +9,8 @@ class Calculator
   end
 
   def expr=(exp)
-    @expr = exp if self.valid?(exp)
+    self.valid?(exp)
+    @expr = exp
   end
 
   def add
