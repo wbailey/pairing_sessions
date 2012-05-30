@@ -11,19 +11,28 @@ describe AsciiTicTacToe do
   end
 
   context 'board' do
+    subject { AsciiTicTacToe.new }
+
     it '#rows' do
-      board = AsciiTicTacToe.new
-      board.rows == 3
+      subject.rows == 3
     end
 
     it '#columns' do
-      board = AsciiTicTacToe.new
-      board.columns == 3
+      subject.columns == 3
     end
 
     it '#spaces' do
-      board = AsciiTicTacToe.new
-      board.spaces == 9
+      subject.spaces == 9
+    end
+  end
+
+  context 'pieces' do
+    it "defines 'o'" do
+      subject.pieces.include?('o').should be_true
+    end
+
+    it "defines 'x'" do
+      subject.pieces.include?('x').should be_true
     end
   end
 end
