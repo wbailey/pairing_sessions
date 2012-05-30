@@ -1,6 +1,6 @@
 class AsciiTicTacToe
   def initialize
-    @board = [[1,2,3],[4,5,6],[7,8,9]]
+    @board = [['','',''],['','',''],['','','']]
     @pieces = ['o', 'x']
   end
 
@@ -18,5 +18,22 @@ class AsciiTicTacToe
 
   def pieces
     return @pieces
+  end
+
+  def move(row, column, piece)
+    if row < 1 || row > self.rows
+      raise "invalid move"
+    end
+
+    if column < 1 || column > self.columns
+      raise "invalid move"
+    end
+
+    if @board[row-1][column-1].empty?
+      @board[row-1][column-1] = piece
+    else
+      raise "invalid move"
+    end
+
   end
 end
