@@ -9,4 +9,21 @@ describe AsciiTicTacToe do
       }.should_not raise_exception
     end
   end
+
+  context 'board' do
+    it '#rows' do
+      board = AsciiTicTacToe.new
+      board.rows == 3
+    end
+
+    it '#columns' do
+      board = AsciiTicTacToe.new
+      board.columns == 3
+    end
+
+    it '#spaces' do
+      board = AsciiTicTacToe.new
+      board.spaces == 9
+    end
+  end
 end
