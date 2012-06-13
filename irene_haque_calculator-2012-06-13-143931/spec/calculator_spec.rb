@@ -8,5 +8,26 @@ describe Calculator do
         Calculator.new
       }.should_not raise_exception
     end
+
+    it 'accepts expression' do
+      expect {
+        Calculator.new '1,2'
+      }.should_not raise_exception
+    end
+  end
+
+  describe '#expr' do
+    it 'returns expression' do
+      c = Calculator.new '1,2'
+      c.expr.should == '1,2'
+    end
+  end
+
+  describe '#expr=' do
+    it 'assigns new expression' do
+      c = Calculator.new
+      c.expr = '3,4'
+      c.expr.should == '3,4'
+    end
   end
 end
