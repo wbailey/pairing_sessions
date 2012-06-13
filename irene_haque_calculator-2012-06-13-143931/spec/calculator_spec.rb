@@ -21,6 +21,12 @@ describe Calculator do
       c = Calculator.new '1,2'
       c.expr.should == '1,2'
     end
+
+    it 'only allows valid string' do
+      expect {
+        Calculator.new 'a,v'
+      }.should raise_exception
+    end
   end
 
   describe '#expr=' do
@@ -28,6 +34,14 @@ describe Calculator do
       c = Calculator.new
       c.expr = '3,4'
       c.expr.should == '3,4'
+    end
+
+    it 'only allows valid string' do
+      c = Calculator.new '1,2'
+
+      expect {
+        c.expr = 'a,b'
+      }.should raise_exception
     end
   end
 end
