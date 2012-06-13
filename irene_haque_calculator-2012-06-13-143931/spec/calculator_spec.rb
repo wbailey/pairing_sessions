@@ -66,5 +66,13 @@ describe Calculator do
       c.expr = '3,4'
       c.add.should == 7
     end
+
+    it 'computes multi-digit expressions' do
+      c = Calculator.new '1,2,3'
+      c.add.should == 6
+
+      c.expr = '1,2,5,8'
+      c.add.should == 16
+    end
   end
 end
