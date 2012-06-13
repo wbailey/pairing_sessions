@@ -44,4 +44,27 @@ describe Calculator do
       }.should raise_exception
     end
   end
+
+  describe '#add' do
+    it 'handles the empty expression' do
+      c = Calculator.new
+      c.add.should == 0
+    end
+
+    it 'computes single digit expression' do
+      c = Calculator.new '1'
+      c.add.should == 1
+
+      c.expr = '9'
+      c.add.should == 9
+    end
+
+    it 'computes double digit expressions' do
+      c = Calculator.new '1,2'
+      c.add.should == 3
+
+      c.expr = '3,4'
+      c.add.should == 7
+    end
+  end
 end

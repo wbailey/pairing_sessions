@@ -12,4 +12,10 @@ class Calculator
 
     @expr = expr
   end
+
+  def add
+    sum = 0
+    digits = expr.split(",").each { |char| sum += char.to_i } unless expr.nil?
+    sum
+  end
 end
