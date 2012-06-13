@@ -27,6 +27,12 @@ describe Calculator do
         Calculator.new 'a,v'
       }.should raise_exception
     end
+
+    it 'rejects non-string expressions' do
+      expect {
+        Calculator.new 4
+      }.should raise_exception
+    end
   end
 
   describe '#expr=' do
@@ -73,6 +79,27 @@ describe Calculator do
 
       c.expr = '1,2,5,8'
       c.add.should == 16
+    end
+  end
+
+  describe '#diff' do
+    it 'rejects expression with less than 2 digits' do
+      c = Calculator.new '1'
+
+      expect {
+        c.diff
+      }.should raise_exception
+    end
+
+    it 'computes valid expressions' do
+      c = Calculator.new '3,2,1'
+      c.diff.should == 0
+
+      c.expr = '5,4,3,2,1'
+      c.diff.should == -5
+
+      c.expr = '1,0'
+      c.diff == 1
     end
   end
 end

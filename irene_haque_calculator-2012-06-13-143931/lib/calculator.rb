@@ -18,4 +18,12 @@ class Calculator
     digits = expr.split(",").each { |char| sum += char.to_i } unless expr.nil?
     sum
   end
+
+  def diff
+    digits = expr.split(",")
+    raise Exception if digits.length < 2
+    diff = digits[0].to_i
+    digits[1..-1].each { |d| diff -= d.to_i }
+    diff
+  end
 end
