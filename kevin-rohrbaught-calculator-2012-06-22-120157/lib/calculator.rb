@@ -12,17 +12,24 @@ class Calculator
   end
 
   def add
-    @digits.inject(:+) || 0
+    calculate(:+)
   end
 
   def diff
-    @digits.inject(:-) || 0
+    raise if @digits.size < 2
+    calculate(:-)
+  end
+
+  def prod
+    calculate(:*)
   end
 
 private
   def parse_expr
     @digits = Array(expr.split(',')).map(&:to_i)
+  end
 
-    raise if @digits.size < 2
+  def calculate(operator)
+    @digits.inject(operator) || 0
   end
 end
