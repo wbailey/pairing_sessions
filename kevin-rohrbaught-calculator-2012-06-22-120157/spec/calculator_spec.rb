@@ -25,4 +25,23 @@ describe Calculator do
       subject.expr.should == expr
     end
   end
+  
+  describe "#add" do
+    subject { Calculator.new expr }
+
+    context "with no values" do
+      let(:expr){ '' }
+      its(:add){ should == 0 }
+    end
+
+    context "with one digit" do
+      let(:expr){ '1' }
+      its(:add){ should == 1 }
+    end
+
+    context "with two digits" do
+      let(:expr){ '1,2' }
+      its(:add){ should == 3 }
+    end
+  end
 end
