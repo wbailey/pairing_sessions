@@ -43,5 +43,15 @@ describe Calculator do
       let(:expr){ '1,2' }
       its(:add){ should == 3 }
     end
+
+    context "with three digits" do
+      let(:expr) { '1,2,3' }
+      its(:add) { should == 6 }
+    end
+
+    context "with four digits" do
+      let(:expr) { '1,2,5,8' }
+      its(:add) { should == 16 }
+    end
   end
 end
