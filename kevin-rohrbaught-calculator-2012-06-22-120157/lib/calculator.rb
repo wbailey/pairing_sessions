@@ -20,6 +20,10 @@ class Calculator
     calculate(:-)
   end
 
+  def div
+    calculate(:/)
+  end
+
   def prod
     calculate(:*)
   end

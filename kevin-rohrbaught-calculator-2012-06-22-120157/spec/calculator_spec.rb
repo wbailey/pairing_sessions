@@ -108,18 +108,38 @@ describe Calculator do
     context "with one digit" do
       let(:expr){ "0" }
       its(:prod){ should == 0 }
-
     end
 
     context "with two digits" do
       let(:expr){ "2,1" }
       its(:prod){ should == 2 }
-
     end
 
     context "with three digits" do
       let(:expr){ "3,2,1" }
       its(:prod){ should == 6 }
+    end
+  end
+
+  describe "#div" do
+    subject { Calculator.new expr }
+
+    context "with 2 digits" do
+      let(:expr) { '2,1' }
+      its(:div) { should == 2 }
+    end
+
+    context "with 3 digits" do
+      let(:expr) { '1,2,3' }
+      its(:div) { should == 0 }
+    end
+
+    context "expression contains 0" do
+      let(:expr) { '3,0' }
+
+      it "raises an exception" do
+        expect { subject.div }.should raise_exception
+      end
     end
   end
 end
