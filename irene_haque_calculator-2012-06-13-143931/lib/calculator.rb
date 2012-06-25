@@ -14,16 +14,13 @@ class Calculator
   end
 
   def add
-    sum = 0
-    digits = expr.split(",").each { |char| sum += char.to_i } unless expr.nil?
-    sum
+    return 0 if expr.nil?
+    expr.split(",").inject(0) { |sum, char| sum += char.to_i } unless expr.nil?
   end
 
   def diff
     digits = expr.split(",")
     raise Exception if digits.length < 2
-    diff = digits[0].to_i
-    digits[1..-1].each { |d| diff -= d.to_i }
-    diff
+    digits[1..-1].inject(digits[0].to_i) { |diff,d| diff -= d.to_i }
   end
 end
