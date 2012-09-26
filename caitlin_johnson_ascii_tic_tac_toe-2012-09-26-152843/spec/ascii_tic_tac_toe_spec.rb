@@ -19,38 +19,68 @@ describe AsciiTicTacToe do
       subject.columns.should == 3
     end
 
-    it 'identifies the first row by 1' do
-      subject.row[0].should == 1
+    describe '#row' do
+      it 'identifies the first row by 1' do
+        subject.row[0].should == 1
+      end
+
+      it 'identifies the first row by 2' do
+        subject.row[1].should == 2
+      end
+
+      it 'identifies the first row by 3' do
+        subject.row[2].should == 3
+      end
     end
 
-    it 'identifies the first row by 2' do
-      subject.row[1].should == 2
-    end
+    describe '#column' do
+      it 'identifies the first column by 1' do
+        subject.column[0].should == 1
+      end
 
-    it 'identifies the first row by 3' do
-      subject.row[2].should == 3
-    end
+      it 'identifies the first column by 2' do
+        subject.column[1].should == 2
+      end
 
-    it 'identifies the first column by 1' do
-      subject.column[0].should == 1
-    end
-
-    it 'identifies the first column by 2' do
-      subject.column[1].should == 2
-    end
-
-    it 'identifies the first column by 3' do
-      subject.column[2].should == 3
+      it 'identifies the first column by 3' do
+        subject.column[2].should == 3
+      end
     end
   end
 
-  describe 'pieces' do
+  describe '#pieces' do
     it 'allows o' do
       subject.pieces.include?('o').should be_true
     end
 
     it 'allows x' do
       subject.pieces.include?('x').should be_true
+    end
+  end
+
+  describe '#move' do
+    it 'allows valid grid and piece' do
+      expect {
+        subject.move(1,1,'x')
+      }.should_not raise_exception
+    end
+
+    it 'rejects invalid grid' do
+      expect {
+        subject.move(4,4,'x')
+      }.should raise_exception /InvalidMove/
+    end
+
+    it 'rejects invalid grid' do
+      expect {
+        subject.move(0,0,'x')
+      }.should raise_exception /InvalidMove/
+    end
+
+    it 'reject invalid piece' do
+      expect {
+        subject.move(2,2,'z')
+      }.should raise_exception /InvalidMove/
     end
   end
 end

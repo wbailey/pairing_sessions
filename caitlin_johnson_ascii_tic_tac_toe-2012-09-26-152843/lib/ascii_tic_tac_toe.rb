@@ -26,4 +26,10 @@ class AsciiTicTacToe
     @pieces
   end
 
+  def move(r, c, piece)
+    if ( (r > rows) || c > columns || (!pieces.include? piece) )
+      raise InvalidMove, 'Invalid grid or piece'
+    end
+  end
+
 end
