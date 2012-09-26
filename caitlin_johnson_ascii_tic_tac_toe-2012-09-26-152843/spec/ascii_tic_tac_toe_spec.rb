@@ -82,5 +82,12 @@ describe AsciiTicTacToe do
         subject.move(2,2,'z')
       }.should raise_exception /InvalidMove/
     end
+
+    it 'rejects move to occupied space' do
+      expect {
+        subject.move(2,2,'x')
+        subject.move(2,2,'o')
+      }.should raise_exception /OccupiedSpace/
+    end
   end
 end
