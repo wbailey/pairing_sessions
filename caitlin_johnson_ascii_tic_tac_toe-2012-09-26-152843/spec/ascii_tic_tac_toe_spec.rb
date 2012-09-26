@@ -43,4 +43,14 @@ describe AsciiTicTacToe do
       subject.column[2].should == 3
     end
   end
+
+  describe 'pieces' do
+    it 'allows o' do
+      subject.pieces.include?('o').should be_true
+    end
+
+    it 'allows x' do
+      subject.pieces.include?('x').should be_true
+    end
+  end
 end
