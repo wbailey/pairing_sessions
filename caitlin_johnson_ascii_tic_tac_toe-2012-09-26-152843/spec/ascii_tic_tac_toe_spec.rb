@@ -90,4 +90,16 @@ describe AsciiTicTacToe do
       }.should raise_exception /OccupiedSpace/
     end
   end
+
+  describe '#display' do
+    it 'allows a board to be printed' do
+      expect {
+        subject.display
+      }.should_not raise_exception
+    end
+
+    it 'an empty board' do
+      subject.should_receive(:puts).with('***\n***\n***\n')
+    end
+  end
 end

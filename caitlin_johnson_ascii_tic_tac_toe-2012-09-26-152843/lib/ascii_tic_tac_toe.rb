@@ -5,7 +5,7 @@ class AsciiTicTacToe
     @column = [1,2,3]
     @pieces = %w/o x/
 
-    @board = Array.new(rows) { |row| row = Array.new(columns) }
+    @board = Array.new(rows) { |row| row = Array.new(columns) {|column| column = '*' } }
   end
  
   def rows
@@ -32,10 +32,14 @@ class AsciiTicTacToe
     unless ( (row.include? r) && (column.include? c) && (pieces.include? piece) )
       raise InvalidMove, 'Invalid grid or piece'
     end
-    unless (@board[r-1][c-1].nil?)
+    unless (@board[r-1][c-1] == '*')
       raise OccupiedSpace, "A piece has already been played at #{r} #{c}"
     end
     @board[r-1][c-1] = piece
+  end
+
+  def display
+    puts @board.to_s
   end
 
 end
