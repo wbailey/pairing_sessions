@@ -39,7 +39,6 @@ class AsciiTicTacToe
   end
 
   def display
-    puts @board.to_s
+    @board.each {|row| puts row[0] + row[1] + row[2] }
   end
-
 end

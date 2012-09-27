@@ -99,7 +99,9 @@ describe AsciiTicTacToe do
     end
 
     it 'an empty board' do
-      subject.should_receive(:puts).with('***\n***\n***\n')
+      subject.should_receive(:puts).exactly(3).times.with('***')
+
+      subject.display
     end
   end
 end
