@@ -100,7 +100,14 @@ describe AsciiTicTacToe do
 
     it 'an empty board' do
       subject.should_receive(:puts).exactly(3).times.with('***')
+      subject.display
+    end
 
+    it 'an o in the center' do
+      subject.should_receive(:puts).with('***')
+      subject.should_receive(:puts).with('*o*')
+      subject.should_receive(:puts).with('***')
+      subject.move(2,2,'o')
       subject.display
     end
   end
