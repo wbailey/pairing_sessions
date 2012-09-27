@@ -120,5 +120,21 @@ describe AsciiTicTacToe do
       subject.move(3,3,'x')
       subject.display
     end
+
+    it 'full board' do
+      subject.should_receive(:puts).with('xxx')
+      subject.should_receive(:puts).with('oox')
+      subject.should_receive(:puts).with('oxx')
+      subject.move(1,1,'x')
+      subject.move(1,2,'x')
+      subject.move(1,3,'x')
+      subject.move(2,1,'o')
+      subject.move(2,2,'o')
+      subject.move(2,3,'x')
+      subject.move(3,1,'o')
+      subject.move(3,2,'x')
+      subject.move(3,3,'x')
+      subject.display
+    end
   end
 end
