@@ -110,5 +110,15 @@ describe AsciiTicTacToe do
       subject.move(2,2,'o')
       subject.display
     end
+
+    it 'diagonals' do
+      subject.should_receive(:puts).with('x**')
+      subject.should_receive(:puts).with('*o*')
+      subject.should_receive(:puts).with('**x')
+      subject.move(1,1,'x')
+      subject.move(2,2,'o')
+      subject.move(3,3,'x')
+      subject.display
+    end
   end
 end
