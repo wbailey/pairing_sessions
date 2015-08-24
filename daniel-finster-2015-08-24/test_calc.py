@@ -9,7 +9,7 @@ if e == '1,2':
 else:
     print "1. Fail!"
 
-calc.assign("4,5")
+calc.expr("4,5")
 e = calc.expr()
 
 if e == '4,5':
@@ -64,3 +64,21 @@ if calc.add() == 21:
     print "10. Success!"
 else:
     print "10. Fail!!"
+
+calc.expr("1,0")
+if calc.diff() == 1:
+    print "11. Success!"
+else:
+    print "11. Fail!!"
+
+c = Calculator("3,2,1")
+if c.diff() == 0:
+    print "12. Success"
+else:
+    print "12. Fail!!"
+
+a = Calculator("5,4,3,2,1")
+if a.diff() == -5:
+    print "13. Success"
+else:
+    print "13. Fail!!"
