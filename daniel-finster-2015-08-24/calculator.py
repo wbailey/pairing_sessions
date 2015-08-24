@@ -1,7 +1,6 @@
 class Calculator (object):
     expression = None
-    first_num = 0
-    second_num = 0
+    digits = []
 
     def __init__ (self, string):
         self.assign(string)
@@ -10,18 +9,10 @@ class Calculator (object):
         self.expression = string
         if string != "":
             parts = string.split(",")
-            if len(parts) > 2:
-                raise Exception("Too many parts!")
-            print parts
-            digits = map(int, parts)
-            if digits[0]:
-                self.first_num = digits[0]
-            if len(digits) > 1 and digits[1]:
-                self.second_num = digits[1]
+            self.digits = map(int, parts)
 
     def expr (self):
         return self.expression
 
     def add (self):
-        return self.first_num + self.second_num
-    
+        return reduce(lambda a,b: a + b, self.digits, 0)

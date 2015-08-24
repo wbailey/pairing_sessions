@@ -52,3 +52,15 @@ if calc.add() == 1:
     print "8. Success!"
 else:
     print "8. Fail!!"
+
+calc = Calculator("1,2,3")
+if calc.add() == 6:
+    print "9. Success!"
+else:
+    print "9. Fail!!"
+
+calc = Calculator("1,2,3,4,5,6")
+if calc.add() == 21:
+    print "10. Success!"
+else:
+    print "10. Fail!!"
