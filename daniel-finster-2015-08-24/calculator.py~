@@ -1,8 +1,0 @@
-class Calculator (object):
-    expr = None
-
-    def __init__ (self, string):
-        self.assign(string)
-
-    def assign (self, string):
-        self.expr = string.split(",")        

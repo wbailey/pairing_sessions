@@ -9,7 +9,7 @@ if e == '1,2':
 else:
     print "1. Fail!"
 
-calc.expr("4,5")
+calc.expr:x("4,5")
 e = calc.expr()
 
 if e == '4,5':
