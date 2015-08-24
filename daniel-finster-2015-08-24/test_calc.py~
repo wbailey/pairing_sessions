@@ -1,0 +1,17 @@
+import calculator
+
+calc = Calculator("1,2")
+
+e = calc.expr()
+
+if e[0] == 1 and e[1] == 2:
+    print "1. Success!"
+else:
+    print "1. Fail!"
+
+calc.assign("4,5")
+
+if e[0] == 4 and e[1] == 5:
+    print "2. Success!"
+else:
+    print "2. Fail!"
