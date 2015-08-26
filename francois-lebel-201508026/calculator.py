@@ -11,6 +11,12 @@ class Calculator(object):
         if not self.numbers:
             return 0
         return sum(self.numbers)
+    
+    def diff(self):
+        if len(self.numbers) < 2:
+            raise ValueError("Diff takes at least two numbers.")
+        return reduce(lambda x, y: x - y, self.numbers)
+
 
     @property
     def expr(self):

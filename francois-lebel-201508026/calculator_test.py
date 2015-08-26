@@ -43,6 +43,23 @@ class TestStringMethods(unittest.TestCase):
         with self.assertRaises(ValueError):
             calc = Calculator("1;2")
 
+    def test_diff_one_digit(self):
+        calc = Calculator("1")
+        with self.assertRaises(ValueError):
+            calc.diff()
+
+    def test_diff_two_digits(self):
+        calc = Calculator("1,0")
+        self.assertEqual(calc.diff(), 1)
+
+    def test_diff_three_digits(self):
+        calc = Calculator("3,2,1")
+        self.assertEqual(calc.diff(), 0)
+
+    def test_diff_many_digits(self):
+        calc = Calculator("5,4,3,2,1")
+        self.assertEqual(calc.diff(), -5)
+
 
 if __name__ == '__main__':
     unittest.main()
