@@ -60,6 +60,26 @@ class TestStringMethods(unittest.TestCase):
         calc = Calculator("5,4,3,2,1")
         self.assertEqual(calc.diff(), -5)
 
+    def test_div_one_digit_which_is_zero(self):
+        calc = Calculator("0")
+        with self.assertRaises(ValueError):
+            calc.div()
+
+    def test_div_many_digits_including_zero(self):
+        calc = Calculator("3,4,2,0,5")
+        with self.assertRaises(ValueError):
+            calc.div()
+
+    def test_div_two_digits(self):
+        calc = Calculator("2,1")
+        self.assertEqual(calc.div(), 2)
+
+    def test_div_three_digits(self):
+        calc = Calculator("3,2,1")
+        self.assertEqual(calc.div(), 1)
+        calc = Calculator("1,2,3")
+        self.assertEqual(calc.div(), 0)
+
     def test_prod_one_digit(self):
         calc = Calculator("0")
         self.assertEqual(calc.prod(), 0)

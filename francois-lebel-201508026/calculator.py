@@ -16,6 +16,11 @@ class Calculator(object):
         if len(self.numbers) < 2:
             raise ValueError("Diff takes at least two numbers.")
         return reduce(lambda x, y: x - y, self.numbers)
+ 
+    def div(self):
+        if 0 in self.numbers:
+            raise ValueError('Cannot divide by 0!')
+        return reduce(lambda x, y: x / y, self.numbers)
 
     def prod(self):
         return reduce(lambda x, y: x * y, self.numbers)
