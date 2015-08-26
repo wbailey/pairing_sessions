@@ -15,6 +15,18 @@ class TestStringMethods(unittest.TestCase):
         calc.expr = new_value
         self.assertEqual(calc.expr, new_value)
 
+    def test_add_two_numbers(self):
+        calc = Calculator("1,2")
+        self.assertEqual(calc.add(), 3)
+
+    def test_add_a_single_number(self):
+        calc = Calculator("1")
+        self.assertEqual(calc.add(), 1)
+
+    def test_add_no_numbers(self):
+        calc = Calculator("")
+        self.assertEqual(calc.add(), 0)
+
 if __name__ == '__main__':
     unittest.main()
 
