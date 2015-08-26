@@ -60,6 +60,20 @@ class TestStringMethods(unittest.TestCase):
         calc = Calculator("5,4,3,2,1")
         self.assertEqual(calc.diff(), -5)
 
+    def test_prod_one_digit(self):
+        calc = Calculator("0")
+        self.assertEqual(calc.prod(), 0)
+
+    def test_prod_two_digits(self):
+        calc = Calculator("2,1")
+        self.assertEqual(calc.prod(), 2)
+
+    def test_prod_three_digits(self):
+        calc = Calculator("3,2,1")
+        self.assertEqual(calc.prod(), 6)
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

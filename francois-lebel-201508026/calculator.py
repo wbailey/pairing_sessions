@@ -17,6 +17,8 @@ class Calculator(object):
             raise ValueError("Diff takes at least two numbers.")
         return reduce(lambda x, y: x - y, self.numbers)
 
+    def prod(self):
+        return reduce(lambda x, y: x * y, self.numbers)
 
     @property
     def expr(self):
